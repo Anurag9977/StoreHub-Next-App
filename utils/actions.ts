@@ -279,7 +279,8 @@ export async function getAllFiles({
 }> {
   const { databases } = await createAdminClient();
   const user = await getCurrentUser();
-  if (!user.payload) return redirect("/login");
+  console.log(user);
+  // if (!user.payload) return redirect("/login");
   const result = await databases.listDocuments(databaseID, filesCollectionID, [
     Query.contains("name", search),
     Query.or([
