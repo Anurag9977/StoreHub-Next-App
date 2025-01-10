@@ -21,7 +21,7 @@ function Logout() {
 
   const [message, setMessage] = useState("");
 
-  const onSubmit = async (data: any) => {
+  const onSubmit = async () => {
     try {
       const response = await logoutAction();
       setMessage(response.message);

@@ -61,7 +61,7 @@ function FileOptions({ file }: { file: Models.Document }) {
               <DropdownMenuItem
                 key={option.label}
                 className="font-medium capitalize cursor-pointer"
-                onClick={(e) => handleOptionsClick(option.label)}
+                onClick={() => handleOptionsClick(option.label)}
               >
                 {<option.icon />} {option.label}
               </DropdownMenuItem>

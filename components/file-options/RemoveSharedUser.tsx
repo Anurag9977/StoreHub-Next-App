@@ -1,7 +1,7 @@
 "use client";
 
 import { toast } from "@/hooks/use-toast";
-import { removeSharedUser, shareFiles } from "@/utils/actions";
+import { removeSharedUser } from "@/utils/actions";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { usePathname } from "next/navigation";
 import { Models } from "node-appwrite";
@@ -21,8 +21,6 @@ function RemoveSharedUser({
   file: Models.Document;
   email: string;
 }) {
-  if (file.users.length < 1) return null;
-
   const pathname = usePathname();
 
   const form = useForm<z.infer<typeof removeSharedUserSchema>>({
@@ -31,7 +29,7 @@ function RemoveSharedUser({
 
   const [message, setMessage] = useState("");
 
-  const onSubmit = async (data: any) => {
+  const onSubmit = async () => {
     const response = await removeSharedUser({ file, email, pathname });
     if (response.message) {
       setMessage(response.message);
@@ -43,6 +41,8 @@ function RemoveSharedUser({
       toast({ description: message });
     }
   }, [message]);
+
+  if (file.users.length < 1) return null;
 
   return (
     <FormContainer form={form} submitAction={onSubmit}>

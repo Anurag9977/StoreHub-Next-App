@@ -1,18 +1,11 @@
 "use client";
 
 import { LucideSidebarOpen } from "lucide-react";
-import {
-  Sheet,
-  SheetContent,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-} from "../ui/sheet";
+import { Sheet, SheetContent, SheetTitle, SheetTrigger } from "../ui/sheet";
 import { navLinks } from "@/utils/links";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import UserIcon from "../navbar/UserIcon";
-import Logout from "../navbar/Logout";
 import FileUpload from "../navbar/FileUpload";
 import Image from "next/image";
 import authImage from "@/assets/authImage.svg";

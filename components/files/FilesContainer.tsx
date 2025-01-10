@@ -1,4 +1,4 @@
-import { FilesLayoutType, FileType } from "@/utils/types";
+import { FilesLayoutType } from "@/utils/types";
 import { Models } from "node-appwrite";
 import { Separator } from "../ui/separator";
 import FilesLayout from "./FilesLayout";

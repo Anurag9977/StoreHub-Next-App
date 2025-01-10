@@ -61,7 +61,9 @@ function FileUpload({
         });
       } finally {
         setFiles([]);
-        handleSidebarOpen && handleSidebarOpen();
+        if (handleSidebarOpen) {
+          handleSidebarOpen();
+        }
       }
     },
     [ownerID, accountID]

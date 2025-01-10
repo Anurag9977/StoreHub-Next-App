@@ -1,7 +1,7 @@
 "use client";
 
 import { toast } from "@/hooks/use-toast";
-import { deleteFile, renameFile } from "@/utils/actions";
+import { deleteFile } from "@/utils/actions";
 import { deleteFileSchema } from "@/utils/schemas";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Models } from "node-appwrite";
@@ -28,7 +28,7 @@ function FileDelete({
 
   const [message, setMessage] = useState("");
 
-  const onSubmit = async (data: any) => {
+  const onSubmit = async () => {
     const response = await deleteFile({ file, pathname });
     if (response.message) {
       setMessage(response.message);

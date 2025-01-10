@@ -9,14 +9,7 @@ import {
 } from "recharts";
 import { ChartConfig, ChartContainer } from "../ui/chart";
 import { getPercentageSpaceUsed, getSpaceAvailable } from "@/lib/utils";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "../ui/card";
+import { Card, CardContent, CardFooter } from "../ui/card";
 
 function DashboardChart({ totalSize }: { totalSize: number }) {
   const percentageSpaceUsed = getPercentageSpaceUsed(totalSize);

@@ -1,8 +1,6 @@
 "use client";
 
-import { FilesLayoutType, FileType } from "@/utils/types";
 import { Button } from "../ui/button";
-import Link from "next/link";
 import { LuLayoutGrid, LuLayoutList } from "react-icons/lu";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
