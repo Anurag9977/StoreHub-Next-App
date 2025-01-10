@@ -5,6 +5,8 @@ import Sidebar from "@/components/sidebar/Sidebar";
 import { getCurrentUser } from "@/utils/actions";
 import { redirect } from "next/navigation";
 
+export const dynamic = "force-dynamic";
+
 async function layout({ children }: Readonly<{ children: React.ReactNode }>) {
   const user = await getCurrentUser();
   if (!user.payload) {

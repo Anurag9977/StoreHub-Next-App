@@ -5,12 +5,14 @@ import { getCurrentUser } from "@/utils/actions";
 import { redirect } from "next/navigation";
 import { chillax } from "@/utils/fonts";
 
+export const dynamic = "force-dynamic";
+
 async function AuthLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   const user = await getCurrentUser();
   if (user.payload) {
-    return redirect("/dashboard");
+    return redirect("/");
   }
 
   return (

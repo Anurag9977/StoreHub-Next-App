@@ -125,7 +125,6 @@ export async function getCurrentUser() {
   try {
     const { account, databases } = await createSessionClient();
     const user = await account.get();
-    console.log(user);
     const result = await databases.listDocuments(
       databaseID,
       usersCollectionID,
@@ -136,7 +135,6 @@ export async function getCurrentUser() {
       payload: result.documents[0],
     };
   } catch (error) {
-    console.log(error);
     return getError(error);
   }
 }
@@ -279,8 +277,8 @@ export async function getAllFiles({
 }> {
   const { databases } = await createAdminClient();
   const user = await getCurrentUser();
-  console.log(user);
-  // if (!user.payload) return redirect("/login");
+  if (!user.payload) return redirect("/login");
+
   const result = await databases.listDocuments(databaseID, filesCollectionID, [
     Query.contains("name", search),
     Query.or([
