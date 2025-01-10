@@ -16,12 +16,12 @@ function OTPFormInput({ name, control }: OTPFormInputProps) {
           <FormControl>
             <InputOTP maxLength={6} {...field}>
               <InputOTPGroup className="w-3/5 mx-auto">
-                <InputOTPSlot index={0} className="w-full" />
-                <InputOTPSlot index={1} className="w-full" />
-                <InputOTPSlot index={2} className="w-full" />
-                <InputOTPSlot index={3} className="w-full" />
-                <InputOTPSlot index={4} className="w-full" />
-                <InputOTPSlot index={5} className="w-full" />
+                <InputOTPSlot index={0} className="w-full font-medium" />
+                <InputOTPSlot index={1} className="w-full font-medium" />
+                <InputOTPSlot index={2} className="w-full font-medium" />
+                <InputOTPSlot index={3} className="w-full font-medium" />
+                <InputOTPSlot index={4} className="w-full font-medium" />
+                <InputOTPSlot index={5} className="w-full font-medium" />
               </InputOTPGroup>
             </InputOTP>
           </FormControl>
