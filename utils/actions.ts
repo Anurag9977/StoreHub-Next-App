@@ -125,6 +125,7 @@ export async function getCurrentUser() {
   try {
     const { account, databases } = await createSessionClient();
     const user = await account.get();
+    console.log(user);
     const result = await databases.listDocuments(
       databaseID,
       usersCollectionID,
@@ -135,6 +136,7 @@ export async function getCurrentUser() {
       payload: result.documents[0],
     };
   } catch (error) {
+    console.log(error);
     return getError(error);
   }
 }
@@ -183,13 +185,9 @@ export async function uploadFile({
     // Check if file size exceeds the storage limit allocated for the user
     const maxStorageAllocated =
       parseInt(process.env.NEXT_PUBLIC_MAX_STORAGE_ALLOCATED_MB!) * 1024 * 1000;
-    const result = await getAllFiles({ sort: "latest", search: "" });
+    const result = await getAllFiles({});
     const totalFileSize =
       getTotalFileSize({ files: result.documents }) + file.size;
-    console.log({
-      total: totalFileSize,
-      maxStorageAllocated,
-    });
     if (totalFileSize > maxStorageAllocated) {
       throw new Error(
         `File ${file.name} cannot be uploaded. Storage limit is exceeding.`
@@ -269,11 +267,11 @@ function getSortQueries({ sort }: { sort: FilesSortType }) {
 }
 
 export async function getAllFiles({
-  sort,
-  search,
+  sort = "latest",
+  search = "",
 }: {
-  sort: FilesSortType;
-  search: string;
+  sort?: FilesSortType;
+  search?: string;
 }): Promise<{
   documents: Models.Document[];
   total: number;
