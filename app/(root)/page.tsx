@@ -5,7 +5,10 @@ import MainContainer from "@/components/globals/MainContainer";
 import { getAllFiles } from "@/utils/actions";
 
 async function DashboardPage() {
-  const { documents, totalSize } = await getAllFiles({});
+  const { documents, totalSize } = await getAllFiles({
+    sort: "latest",
+    search: "",
+  });
 
   return (
     <MainContainer className="h-full py-8 grid lg:grid-cols-10 gap-y-6 gap-x-8">

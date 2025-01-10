@@ -183,7 +183,7 @@ export async function uploadFile({
     // Check if file size exceeds the storage limit allocated for the user
     const maxStorageAllocated =
       parseInt(process.env.NEXT_PUBLIC_MAX_STORAGE_ALLOCATED_MB!) * 1024 * 1000;
-    const result = await getAllFiles({});
+    const result = await getAllFiles({ sort: "latest", search: "" });
     const totalFileSize =
       getTotalFileSize({ files: result.documents }) + file.size;
     console.log({
@@ -269,11 +269,11 @@ function getSortQueries({ sort }: { sort: FilesSortType }) {
 }
 
 export async function getAllFiles({
-  sort = "latest",
-  search = "",
+  sort,
+  search,
 }: {
-  sort?: FilesSortType;
-  search?: string;
+  sort: FilesSortType;
+  search: string;
 }): Promise<{
   documents: Models.Document[];
   total: number;
