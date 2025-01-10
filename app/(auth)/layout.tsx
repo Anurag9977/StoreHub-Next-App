@@ -10,7 +10,7 @@ async function AuthLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   const user = await getCurrentUser();
   if (user.payload) {
-    return redirect("/");
+    return redirect("/images");
   }
 
   return (
