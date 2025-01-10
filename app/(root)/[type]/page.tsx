@@ -10,11 +10,11 @@ async function FilesPage({
   params,
   searchParams,
 }: {
-  params: { type: FileType };
-  searchParams: {
+  params: Promise<{ type: FileType }>;
+  searchParams: Promise<{
     layout: FilesLayoutType | undefined;
     sort: FilesSortType | undefined;
-  };
+  }>;
 }) {
   const { type } = await params;
   const { layout, sort } = await searchParams;

@@ -8,11 +8,11 @@ import { FilesLayoutType, FilesSortType } from "@/utils/types";
 async function AllFilesPage({
   searchParams,
 }: {
-  searchParams: {
+  searchParams: Promise<{
     search: string;
     layout: FilesLayoutType | undefined;
     sort: FilesSortType | undefined;
-  };
+  }>;
 }) {
   const { search, layout, sort } = await searchParams;
 
